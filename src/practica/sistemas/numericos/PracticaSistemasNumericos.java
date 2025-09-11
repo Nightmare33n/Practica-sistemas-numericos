@@ -1,20 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package practica.sistemas.numericos;
 
-/**
- *
- * @author andre
- */
+import javax.swing.JOptionPane;
+
 public class PracticaSistemasNumericos {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static String convertirDecimalAOctal(int dec) {
+        if (dec == 0) return "0";  // Caso especial
+        
+        String octal = "";
+        while (dec > 0) {
+            int residuo = dec % 8;
+            octal = residuo + octal;  // Esto está bien
+            dec = dec / 8;
+        }
+        return octal;
     }
-    
+
+    public static void main(String[] args) {
+        int decimal = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el numero en decimal: "));
+        
+       
+        String resultado = convertirDecimalAOctal(decimal);
+        JOptionPane.showMessageDialog(null, decimal + " en octal es: " + resultado);
+    }
 }
